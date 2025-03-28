@@ -1,0 +1,15 @@
+-- src --
+I am a random text file with some junk in it but here is a valid (looking) link https://api.somewhere.com. Oh look!
+some
+newlines
+
+
+Lots of space
+
+And another link here but this time insecure http://api.somewhere.co.uk/insecure
+
+And one more for luck https://something.io/blah/blah?query=param&number=2
+-- expected --
+https://api.somewhere.com
+http://api.somewhere.co.uk/insecure
+https://something.io/blah/blah?query=param&number=2
