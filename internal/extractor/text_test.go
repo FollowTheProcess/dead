@@ -2,6 +2,7 @@ package extractor_test
 
 import (
 	"bytes"
+	"os"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -11,8 +12,10 @@ import (
 	"github.com/rogpeppe/go-internal/txtar"
 )
 
+var ci = os.Getenv("CI") != ""
+
 func TestTextExtractor(t *testing.T) {
-	test.ColorEnabled(true) // Force colour in diffs
+	test.ColorEnabled(!ci) // Force colour in diffs, but locally only
 
 	pattern := filepath.Join("testdata", "Text", "*.txtar")
 	files, err := filepath.Glob(pattern)
