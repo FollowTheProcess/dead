@@ -156,6 +156,8 @@ linters:
             - fmt\.(Fp|P)rint(ln|f)?
             - strings.Builder.Write(String|Byte)?
             - bytes.Buffer.Write(String|Byte)?
+            - io.Closer.Close
+            - text/tabwriter.Writer.Flush
 
         - name: flag-parameter
           disabled: true # As far as I can work out this just doesn't like bools

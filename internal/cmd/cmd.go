@@ -32,8 +32,16 @@ func check() (*cli.Command, error) {
 		cli.Short("Check a file or files in a directory (recursively) for dead links"),
 		cli.RequiredArg("path", "Path to the file or directory to scan"),
 		cli.Flag(&options.Debug, "debug", cli.NoShortHand, false, "Enable debug logging"),
+		cli.Flag(&options.Timeout, "timeout", 't', dead.DefaultOverallTimeout, "Timeout for the entire operation"),
+		cli.Flag(
+			&options.RequestTimeout,
+			"request-timeout",
+			'r',
+			dead.DefaultRequestTimeout,
+			"Timeout for each request",
+		),
 		cli.Run(func(cmd *cli.Command, args []string) error {
-			dead := dead.New(cmd.Stdout(), cmd.Stderr(), options.Debug)
+			dead := dead.New(cmd.Stdout(), cmd.Stderr(), options.Debug, version)
 			return dead.Check(cmd.Arg("path"), options)
 		}),
 	)

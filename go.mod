@@ -4,6 +4,7 @@ go 1.24
 
 require (
 	github.com/FollowTheProcess/cli v0.13.0
+	github.com/FollowTheProcess/hue v0.5.2
 	github.com/FollowTheProcess/msg v1.8.0
 	github.com/FollowTheProcess/test v0.21.0
 	github.com/charmbracelet/lipgloss v1.0.0
@@ -12,7 +13,6 @@ require (
 )
 
 require (
-	github.com/FollowTheProcess/hue v0.5.2 // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/charmbracelet/x/ansi v0.4.2 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect

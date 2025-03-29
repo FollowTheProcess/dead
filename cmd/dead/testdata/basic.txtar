@@ -1,3 +1,0 @@
-exec dead check example.md
-stdout 'Checking example.md'
-! stderr .
