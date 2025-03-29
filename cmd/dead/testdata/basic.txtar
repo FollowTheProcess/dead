@@ -1,3 +1,20 @@
-exec dead check example.md
-stdout 'Checking example.md'
+exec dead check test.txt
+
+# Replace anything that looks like a small time duration with a placeholder
+# 30s
+# 15.32s
+# 103.5656ms
+replace stdout '\d+(?:\.\d+)?(?:s|ms)' '[DURATION]'
+
+cmp stdout expected
 ! stderr .
+
+-- test.txt --
+https://jsonplaceholder.typicode.com/todos/1
+https://jsonplaceholder.typicode.com/posts/1
+https://jsonplaceholder.typicode.com/posts/1/comments
+
+-- expected --
+https://jsonplaceholder.typicode.com/todos/1           200 OK  [DURATION]
+https://jsonplaceholder.typicode.com/posts/1           200 OK  [DURATION]
+https://jsonplaceholder.typicode.com/posts/1/comments  200 OK  [DURATION]
