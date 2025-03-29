@@ -1,4 +1,4 @@
-package main
+package dead_test
 
 import (
 	"fmt"
@@ -6,13 +6,20 @@ import (
 	"regexp"
 	"testing"
 
+	"github.com/FollowTheProcess/dead/internal/dead"
 	"github.com/rogpeppe/go-internal/testscript"
 )
 
 func TestMain(m *testing.M) {
 	testscript.Main(m, map[string]func(){
-		"dead": func() {
-			if err := run(); err != nil {
+		"check": func() {
+			app := dead.New(os.Stdout, os.Stderr, false, "test")
+			options := dead.CheckOptions{
+				Debug:          false,
+				RequestTimeout: dead.DefaultRequestTimeout,
+				Timeout:        dead.DefaultOverallTimeout,
+			}
+			if err := app.Check(os.Args[1], options); err != nil {
 				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 				os.Exit(1)
 			}

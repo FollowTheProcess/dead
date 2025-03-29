@@ -1,4 +1,4 @@
-exec dead check test.txt
+exec check test.txt
 
 # Replace anything that looks like a small time duration with a placeholder
 # 30s

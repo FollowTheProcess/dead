@@ -176,7 +176,7 @@ func (d Dead) Check(path string, options CheckOptions) error {
 		return err
 	}
 
-	logger.Debug("Found links", "count", len(links), "links", links)
+	logger.Debug("Found links", "count", len(links))
 
 	client := &http.Client{
 		Timeout: options.RequestTimeout,
@@ -238,9 +238,16 @@ func (d Dead) Check(path string, options CheckOptions) error {
 				failure.Text(result.Status),
 				duration.Text(result.Duration.String()),
 			)
-		} else {
-			fmt.Fprintf(tw, "%s\t%s\t%s\n", result.URL, success.Text(result.Status), duration.Text(result.Duration.String()))
+			continue
 		}
+
+		fmt.Fprintf(
+			tw,
+			"%s\t%s\t%s\n",
+			result.URL,
+			success.Text(result.Status),
+			duration.Text(result.Duration.String()),
+		)
 	}
 
 	return tw.Flush()
