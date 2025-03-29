@@ -9,10 +9,11 @@ import (
 	"net/http"
 	"os"
 	"strings"
-	"text/tabwriter"
 	"time"
 
 	"github.com/FollowTheProcess/dead/internal/extractor"
+	"github.com/FollowTheProcess/hue"
+	"github.com/FollowTheProcess/hue/tabwriter"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/log"
 )
@@ -34,15 +35,23 @@ const (
 	flags    = 0   // Config flags
 )
 
+// Hue styles.
+const (
+	success  = hue.Green | hue.Bold
+	failure  = hue.Red | hue.Bold
+	duration = hue.BrightBlack
+)
+
 // Dead holds the configuration and state of the dead program.
 type Dead struct {
-	stdout io.Writer   // Normal program output is written here
-	stderr io.Writer   // Logs, debug info and errors go here
-	logger *log.Logger // The global logger
+	stdout  io.Writer
+	stderr  io.Writer
+	logger  *log.Logger
+	version string
 }
 
 // New returns a new instance of [Dead].
-func New(stdout, stderr io.Writer, debug bool) Dead {
+func New(stdout, stderr io.Writer, debug bool, version string) Dead {
 	const width = 5
 
 	level := log.InfoLevel
@@ -96,7 +105,12 @@ func New(stdout, stderr io.Writer, debug bool) Dead {
 		Values: map[string]lipgloss.Style{},
 	})
 
-	return Dead{stdout: stdout, stderr: stderr, logger: logger}
+	return Dead{
+		stdout:  stdout,
+		stderr:  stderr,
+		logger:  logger,
+		version: version,
+	}
 }
 
 // CheckOptions are the flags passed to the check subcommand.
@@ -171,7 +185,7 @@ func (d Dead) Check(path string, options CheckOptions) error {
 		if err != nil {
 			return err
 		}
-		// TODO(@FollowTheProcess): Set User-Agent
+		request.Header.Add("User-Agent", "github.com/FollowTheProcess/dead "+d.version)
 		requests = append(requests, request)
 	}
 
@@ -203,13 +217,28 @@ func (d Dead) Check(path string, options CheckOptions) error {
 	tw := tabwriter.NewWriter(d.stdout, minWidth, tabWidth, padding, padChar, flags)
 	for _, result := range results {
 		if result.Err != nil {
-			fmt.Fprintf(tw, "%s\t%v\t%s\n", result.URL, result.Err, result.Duration)
+			fmt.Fprintf(
+				tw,
+				"%s\t%v\t%s\n",
+				result.URL,
+				failure.Text(result.Err.Error()),
+				duration.Text(result.Duration.String()),
+			)
+			continue
+		}
+
+		if result.StatusCode >= http.StatusBadRequest {
+			fmt.Fprintf(
+				tw,
+				"%s\t%s\t%s\n",
+				result.URL,
+				failure.Text(result.Status),
+				duration.Text(result.Duration.String()),
+			)
 		} else {
-			fmt.Fprintf(tw, "%s\t%s\t%s\n", result.URL, result.Status, result.Duration)
+			fmt.Fprintf(tw, "%s\t%s\t%s\n", result.URL, success.Text(result.Status), duration.Text(result.Duration.String()))
 		}
 	}
 
-	tw.Flush()
-
-	return nil
+	return tw.Flush()
 }

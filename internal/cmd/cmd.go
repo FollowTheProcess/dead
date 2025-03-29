@@ -41,7 +41,7 @@ func check() (*cli.Command, error) {
 			"Timeout for each request",
 		),
 		cli.Run(func(cmd *cli.Command, args []string) error {
-			dead := dead.New(cmd.Stdout(), cmd.Stderr(), options.Debug)
+			dead := dead.New(cmd.Stdout(), cmd.Stderr(), options.Debug, version)
 			return dead.Check(cmd.Arg("path"), options)
 		}),
 	)
