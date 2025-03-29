@@ -144,7 +144,8 @@ func (d Dead) Check(path string, options CheckOptions) error {
 
 	// Range over the results channel which should return the URL, status code and the message
 	// if it's not ok. But not stop the loop, we need to keep processing all links
-	d.logger.Debug("Checking links", "path", path)
+	logger := d.logger.With("path", path)
+	logger.Debug("Checking links")
 
 	info, err := os.Stat(path)
 	if err != nil {
@@ -174,6 +175,8 @@ func (d Dead) Check(path string, options CheckOptions) error {
 	if err != nil {
 		return err
 	}
+
+	logger.Debug("Found links", "count", len(links), "links", links)
 
 	client := &http.Client{
 		Timeout: options.RequestTimeout,
