@@ -2,12 +2,14 @@
 package dead
 
 import (
+	"cmp"
 	"context"
 	"errors"
 	"fmt"
 	"io"
 	"net/http"
 	"os"
+	"slices"
 	"strings"
 	"time"
 
@@ -218,6 +220,11 @@ func (d Dead) Check(path string, options CheckOptions) error {
 
 		results = append(results, result)
 	}
+
+	// Sort results by URL on the way out so output is deterministic
+	slices.SortFunc(results, func(a, b CheckResult) int {
+		return cmp.Compare(a.URL, b.URL)
+	})
 
 	tw := tabwriter.NewWriter(d.stdout, minWidth, tabWidth, padding, padChar, flags)
 	for _, result := range results {
