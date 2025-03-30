@@ -8,6 +8,7 @@ exec check test.txt
 # 15.32s
 # 103.5656ms
 replace stdout '\d+(?:\.\d+)?(?:s|ms|µs)' '[DURATION]'
+replace stdout '(\d+ workers)' '[NUM] workers'
 
 cmp stdout expected
 ! stderr .
@@ -22,4 +23,4 @@ $TEST_URL/posts/1           200 OK  [DURATION]
 $TEST_URL/posts/1/comments  200 OK  [DURATION]
 $TEST_URL/todos/1           200 OK  [DURATION]
 
-Checked 3 links in [DURATION]
+Checked 3 links in [DURATION] ([NUM] workers)
