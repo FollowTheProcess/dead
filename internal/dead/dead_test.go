@@ -1,6 +1,7 @@
 package dead_test
 
 import (
+	"flag"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -11,6 +12,8 @@ import (
 	"github.com/FollowTheProcess/dead/internal/dead"
 	"github.com/rogpeppe/go-internal/testscript"
 )
+
+var update = flag.Bool("update", false, "Update testscript snapshots")
 
 func TestMain(m *testing.M) {
 	testscript.Main(m, map[string]func(){
@@ -40,7 +43,7 @@ func Test(t *testing.T) {
 
 	testscript.Run(t, testscript.Params{
 		Dir:                 "testdata",
-		UpdateScripts:       false,
+		UpdateScripts:       *update,
 		RequireExplicitExec: true,
 		RequireUniqueNames:  true,
 		Setup: func(e *testscript.Env) error {

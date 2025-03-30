@@ -18,8 +18,8 @@ $TEST_URL/posts/1
 $TEST_URL/posts/1/comments
 
 -- expected --
-$TEST_URL/todos/1           200 OK  [DURATION]
 $TEST_URL/posts/1           200 OK  [DURATION]
 $TEST_URL/posts/1/comments  200 OK  [DURATION]
+$TEST_URL/todos/1           200 OK  [DURATION]
 
 Checked 3 links in [DURATION]
