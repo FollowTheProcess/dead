@@ -131,6 +131,8 @@ type CheckResult struct {
 
 // Check is the entry point for the `dead check` subcommand.
 func (d Dead) Check(path string, options CheckOptions) error {
+	start := time.Now()
+
 	ctx, cancel := context.WithTimeout(context.Background(), options.Timeout)
 	defer cancel()
 
@@ -195,13 +197,13 @@ func (d Dead) Check(path string, options CheckOptions) error {
 	results := make([]CheckResult, 0, len(links))
 	for _, request := range requests {
 		var result CheckResult
-		start := time.Now()
+		requestStart := time.Now()
 		response, err := client.Do(request)
 		if err != nil {
 			result = CheckResult{
 				URL:      request.URL.String(),
 				Err:      err,
-				Duration: time.Since(start),
+				Duration: time.Since(requestStart),
 			}
 		} else {
 			result = CheckResult{
@@ -209,7 +211,7 @@ func (d Dead) Check(path string, options CheckOptions) error {
 				StatusCode: response.StatusCode,
 				Status:     response.Status,
 				Err:        err,
-				Duration:   time.Since(start),
+				Duration:   time.Since(requestStart),
 			}
 			response.Body.Close()
 		}
@@ -250,5 +252,8 @@ func (d Dead) Check(path string, options CheckOptions) error {
 		)
 	}
 
-	return tw.Flush()
+	tw.Flush()
+
+	duration.Fprintf(d.stdout, "\nChecked %d links in %s\n", len(links), time.Since(start))
+	return nil
 }
