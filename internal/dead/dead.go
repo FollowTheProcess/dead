@@ -22,6 +22,9 @@ import (
 	"github.com/charmbracelet/log"
 )
 
+// TODO(@FollowTheProcess): De-dupe links, use a set
+// TODO(@FollowTheProcess): Recurse into directories and feed the extracted links into the pipeline
+
 const (
 	// DefaultRequestTimeout is the default value for the per-request timeout.
 	DefaultRequestTimeout = 5 * time.Second
