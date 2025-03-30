@@ -2,6 +2,8 @@
 package cmd
 
 import (
+	"runtime"
+
 	"github.com/FollowTheProcess/cli"
 	"github.com/FollowTheProcess/dead/internal/dead"
 )
@@ -39,6 +41,13 @@ func check() (*cli.Command, error) {
 			'r',
 			dead.DefaultRequestTimeout,
 			"Timeout for each request",
+		),
+		cli.Flag(
+			&options.Parallelism,
+			"parallelism",
+			'p',
+			runtime.NumCPU(),
+			"Number of goroutines available for checking",
 		),
 		cli.Run(func(cmd *cli.Command, args []string) error {
 			dead := dead.New(cmd.Stdout(), cmd.Stderr(), options.Debug, version)
