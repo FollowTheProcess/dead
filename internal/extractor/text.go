@@ -36,7 +36,7 @@ func (t TextExtractor) Extract() ([]string, error) {
 	// involves backtracking so it's most likely quicker to just loop through the matches and remove any trailing
 	// dots
 	for i := range matches {
-		matches[i] = strings.TrimSuffix(matches[i], ".")
+		matches[i] = strings.TrimRight(matches[i], ".)")
 	}
 
 	return matches, nil
