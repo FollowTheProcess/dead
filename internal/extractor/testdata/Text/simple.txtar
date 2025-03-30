@@ -9,7 +9,10 @@ Lots of space
 And another link here but this time insecure http://api.somewhere.co.uk/insecure
 
 And one more for luck https://something.io/blah/blah?query=param&number=2
+
+What about a markdown link like [this](https://image.com/this)
 -- expected --
 https://api.somewhere.com
 http://api.somewhere.co.uk/insecure
 https://something.io/blah/blah?query=param&number=2
+https://image.com/this
