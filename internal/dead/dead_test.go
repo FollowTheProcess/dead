@@ -2,6 +2,8 @@ package dead_test
 
 import (
 	"fmt"
+	"net/http"
+	"net/http/httptest"
 	"os"
 	"regexp"
 	"testing"
@@ -28,13 +30,26 @@ func TestMain(m *testing.M) {
 }
 
 func Test(t *testing.T) {
+	// Just always returns a 200
+	successHandler := func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, `{"stuff": "here"}`)
+	}
+
+	server := httptest.NewServer(http.HandlerFunc(successHandler))
+	t.Cleanup(server.Close)
+
 	testscript.Run(t, testscript.Params{
 		Dir:                 "testdata",
 		UpdateScripts:       false,
 		RequireExplicitExec: true,
 		RequireUniqueNames:  true,
+		Setup: func(e *testscript.Env) error {
+			e.Setenv("TEST_URL", server.URL)
+			return nil
+		},
 		Cmds: map[string]func(ts *testscript.TestScript, neg bool, args []string){
 			"replace": Replace,
+			"expand":  Expand,
 		},
 	})
 }
@@ -72,4 +87,33 @@ func Replace(ts *testscript.TestScript, neg bool, args []string) {
 
 	_, err = ts.Stdout().Write([]byte(replaced))
 	ts.Check(err)
+}
+
+// Expand expands environment variables in the given files and saves the new contents in place.
+//
+// Usage:
+//
+//	expand <files(s)...>
+//
+// It cannot be negated and works on "stdout" and "stderr".
+func Expand(ts *testscript.TestScript, neg bool, args []string) {
+	if neg {
+		ts.Fatalf("unsupported: ! expand")
+	}
+
+	if len(args) < 1 {
+		ts.Fatalf("usage: expand <file(s)...>")
+	}
+
+	for _, file := range args {
+		file = ts.MkAbs(file)
+		str := ts.ReadFile(file)
+
+		str = os.Expand(str, func(key string) string {
+			return ts.Getenv(key)
+		})
+
+		err := os.WriteFile(file, []byte(str), 0o644)
+		ts.Check(err)
+	}
 }

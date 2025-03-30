@@ -1,20 +1,23 @@
+# Replace the $TEST_URL with our test HTTP server
+expand test.txt expected
+
 exec check test.txt
 
 # Replace anything that looks like a small time duration with a placeholder
 # 30s
 # 15.32s
 # 103.5656ms
-replace stdout '\d+(?:\.\d+)?(?:s|ms)' '[DURATION]'
+replace stdout '\d+(?:\.\d+)?(?:s|ms|µs)' '[DURATION]'
 
 cmp stdout expected
 ! stderr .
 
 -- test.txt --
-https://jsonplaceholder.typicode.com/todos/1
-https://jsonplaceholder.typicode.com/posts/1
-https://jsonplaceholder.typicode.com/posts/1/comments
+$TEST_URL/todos/1
+$TEST_URL/posts/1
+$TEST_URL/posts/1/comments
 
 -- expected --
-https://jsonplaceholder.typicode.com/todos/1           200 OK  [DURATION]
-https://jsonplaceholder.typicode.com/posts/1           200 OK  [DURATION]
-https://jsonplaceholder.typicode.com/posts/1/comments  200 OK  [DURATION]
+$TEST_URL/todos/1           200 OK  [DURATION]
+$TEST_URL/posts/1           200 OK  [DURATION]
+$TEST_URL/posts/1/comments  200 OK  [DURATION]
