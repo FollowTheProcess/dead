@@ -11,15 +11,13 @@ import (
 	"os"
 	"runtime"
 	"slices"
-	"strings"
 	"sync"
 	"time"
 
 	"github.com/FollowTheProcess/dead/internal/extractor"
 	"github.com/FollowTheProcess/hue"
 	"github.com/FollowTheProcess/hue/tabwriter"
-	"github.com/charmbracelet/lipgloss"
-	"github.com/charmbracelet/log"
+	"github.com/FollowTheProcess/log"
 )
 
 // TODO(@FollowTheProcess): De-dupe links, use a set
@@ -46,7 +44,7 @@ const (
 const (
 	success  = hue.Green | hue.Bold
 	failure  = hue.Red | hue.Bold
-	duration = hue.BrightBlack
+	duration = hue.Dim
 )
 
 // Dead holds the configuration and state of the dead program.
@@ -59,58 +57,11 @@ type Dead struct {
 
 // New returns a new instance of [Dead].
 func New(stdout, stderr io.Writer, debug bool, version string) Dead {
-	const width = 5
-
-	level := log.InfoLevel
+	level := log.LevelInfo
 	if debug {
-		level = log.DebugLevel
+		level = log.LevelDebug
 	}
-
-	logger := log.NewWithOptions(stderr, log.Options{
-		ReportTimestamp: true,
-		Level:           level,
-	})
-
-	// Largely the default styles but with a default MaxWidth of 5 so as to not cutoff
-	// DEBUG or ERROR
-	logger.SetStyles(&log.Styles{
-		Timestamp: lipgloss.NewStyle(),
-		Caller:    lipgloss.NewStyle().Faint(true),
-		Prefix:    lipgloss.NewStyle().Bold(true).Faint(true),
-		Message:   lipgloss.NewStyle(),
-		Key:       lipgloss.NewStyle().Faint(true),
-		Value:     lipgloss.NewStyle(),
-		Separator: lipgloss.NewStyle().Faint(true),
-		Levels: map[log.Level]lipgloss.Style{
-			log.DebugLevel: lipgloss.NewStyle().
-				SetString(strings.ToUpper(log.DebugLevel.String())).
-				Bold(true).
-				MaxWidth(width).
-				Foreground(lipgloss.Color("63")),
-			log.InfoLevel: lipgloss.NewStyle().
-				SetString(strings.ToUpper(log.InfoLevel.String())).
-				Bold(true).
-				MaxWidth(width).
-				Foreground(lipgloss.Color("86")),
-			log.WarnLevel: lipgloss.NewStyle().
-				SetString(strings.ToUpper(log.WarnLevel.String())).
-				Bold(true).
-				MaxWidth(width).
-				Foreground(lipgloss.Color("192")),
-			log.ErrorLevel: lipgloss.NewStyle().
-				SetString(strings.ToUpper(log.ErrorLevel.String())).
-				Bold(true).
-				MaxWidth(width).
-				Foreground(lipgloss.Color("204")),
-			log.FatalLevel: lipgloss.NewStyle().
-				SetString(strings.ToUpper(log.FatalLevel.String())).
-				Bold(true).
-				MaxWidth(width).
-				Foreground(lipgloss.Color("134")),
-		},
-		Keys:   map[string]lipgloss.Style{},
-		Values: map[string]lipgloss.Style{},
-	})
+	logger := log.New(stderr, log.WithLevel(level))
 
 	return Dead{
 		stdout:  stdout,
