@@ -6,14 +6,17 @@
 [![CI](https://github.com/FollowTheProcess/dead/workflows/CI/badge.svg)](https://github.com/FollowTheProcess/dead/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/FollowTheProcess/dead/branch/main/graph/badge.svg)](https://codecov.io/gh/FollowTheProcess/dead)
 
-A dead simple link checker, supporting multiple formats
+A dead simple link checker, supporting multiple formats ⚡
 
-> [!WARNING]
-> **dead is in early development and is not yet ready for use**
-
-![caution](./img/caution.png)
+<p align="center">
+<img src="https://github.com/FollowTheProcess/dead/raw/main/docs/img/demo.gif" alt="demo">
+</p>
 
 ## Project Description
+
+Got a text document (of any format)? Does that text document have links in it? Do you want to ensure all the links in it are valid?
+
+Then `dead` is for you 🚀
 
 ## Installation
 
