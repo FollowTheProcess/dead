@@ -18,6 +18,7 @@ import (
 	"github.com/FollowTheProcess/hue"
 	"github.com/FollowTheProcess/hue/tabwriter"
 	"github.com/FollowTheProcess/log"
+	"github.com/FollowTheProcess/spin"
 )
 
 // TODO(@FollowTheProcess): De-dupe links, use a set
@@ -137,6 +138,9 @@ func (d Dead) Check(path string, options CheckOptions) error {
 
 	links := extractLinks(ctx, f)
 
+	spinner := spin.New(d.stdout, "Checking "+path)
+
+	spinner.Start()
 	workers := make([]<-chan CheckResult, 0, options.Parallelism)
 	for range options.Parallelism {
 		workers = append(workers, check(ctx, client, links))
@@ -152,8 +156,10 @@ func (d Dead) Check(path string, options CheckOptions) error {
 	slices.SortFunc(sorted, func(a, b CheckResult) int {
 		return cmp.Compare(a.URL, b.URL)
 	})
+	spinner.Stop()
 
 	tw := tabwriter.NewWriter(d.stdout, minWidth, tabWidth, padding, padChar, flags)
+
 	for _, result := range sorted {
 		if result.Err != nil {
 			fmt.Fprintf(

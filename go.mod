@@ -7,6 +7,7 @@ require (
 	github.com/FollowTheProcess/hue v0.5.2
 	github.com/FollowTheProcess/log v0.2.0
 	github.com/FollowTheProcess/msg v1.8.0
+	github.com/FollowTheProcess/spin v0.2.0
 	github.com/FollowTheProcess/test v0.21.0
 	github.com/rogpeppe/go-internal v1.14.1
 )
