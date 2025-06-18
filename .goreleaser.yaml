@@ -31,23 +31,27 @@ builds:
     goarm:
       - "7"
 
-brews:
-  - repository:
+homebrew_casks:
+  - name: dead
+    binary: dead
+    directory: Casks
+    description: A dead simple link checker, supporting multiple formats
+    homepage: https://github.com/FollowTheProcess/dead
+    conflicts:
+      - formula: dead
+    commit_author:
+      name: Tom Fleet
+      email: me@followtheprocess.codes
+    repository:
       owner: FollowTheProcess
       name: homebrew-tap
       token: "{{.Env.HOMEBREW_TAP_TOKEN}}"
-    goarm: "7"
-    directory: Formula
-    commit_author:
-      name: Tom Fleet
-      email: tomfleet2018@gmail.com
-    homepage: https://github.com/FollowTheProcess/dead
-    description: A dead simple link checker, supporting multiple formats
-    license: MIT License
-    install: |
-      bin.install "dead"
-    test: |
-      "#{bin}/dead --version"
+    hooks:
+      post:
+        install: |
+          if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/dead"]
+          end
 
 archives:
   - id: dead
