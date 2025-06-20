@@ -9,8 +9,8 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/FollowTheProcess/dead/internal/dead"
 	"github.com/rogpeppe/go-internal/testscript"
+	"go.followtheprocess.codes/dead/internal/dead"
 )
 
 var update = flag.Bool("update", false, "Update testscript snapshots")

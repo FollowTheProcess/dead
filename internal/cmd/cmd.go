@@ -4,8 +4,8 @@ package cmd
 import (
 	"runtime"
 
-	"github.com/FollowTheProcess/dead/internal/dead"
 	"go.followtheprocess.codes/cli"
+	"go.followtheprocess.codes/dead/internal/dead"
 )
 
 var (
