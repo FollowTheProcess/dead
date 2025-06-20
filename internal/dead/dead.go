@@ -15,10 +15,10 @@ import (
 	"time"
 
 	"github.com/FollowTheProcess/dead/internal/extractor"
-	"github.com/FollowTheProcess/hue"
-	"github.com/FollowTheProcess/hue/tabwriter"
-	"github.com/FollowTheProcess/log"
-	"github.com/FollowTheProcess/spin"
+	"go.followtheprocess.codes/hue"
+	"go.followtheprocess.codes/hue/tabwriter"
+	"go.followtheprocess.codes/log"
+	"go.followtheprocess.codes/spin"
 )
 
 // TODO(@FollowTheProcess): De-dupe links, use a set

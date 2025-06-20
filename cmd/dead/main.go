@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/FollowTheProcess/dead/internal/cmd"
-	"github.com/FollowTheProcess/msg"
+	"go.followtheprocess.codes/msg"
 )
 
 func main() {
