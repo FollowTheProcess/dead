@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/FollowTheProcess/dead/internal/cmd"
+	"go.followtheprocess.codes/dead/internal/cmd"
 	"go.followtheprocess.codes/msg"
 )
 

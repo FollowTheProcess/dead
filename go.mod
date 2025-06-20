@@ -1,4 +1,4 @@
-module github.com/FollowTheProcess/dead
+module go.followtheprocess.codes/dead
 
 go 1.24
 

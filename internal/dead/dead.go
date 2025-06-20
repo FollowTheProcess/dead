@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/FollowTheProcess/dead/internal/extractor"
+	"go.followtheprocess.codes/dead/internal/extractor"
 	"go.followtheprocess.codes/hue"
 	"go.followtheprocess.codes/hue/tabwriter"
 	"go.followtheprocess.codes/log"
@@ -256,7 +256,7 @@ func check(ctx context.Context, client *http.Client, in <-chan result[string]) <
 					results <- CheckResult{URL: link.value, Err: err}
 					return
 				}
-				request.Header.Add("User-Agent", "github.com/FollowTheProcess/dead")
+				request.Header.Add("User-Agent", "go.followtheprocess.codes/dead")
 
 				var result CheckResult
 				requestStart := time.Now()

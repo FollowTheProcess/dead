@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/FollowTheProcess/dead/internal/extractor"
 	"github.com/rogpeppe/go-internal/txtar"
+	"go.followtheprocess.codes/dead/internal/extractor"
 	"go.followtheprocess.codes/test"
 )
 
