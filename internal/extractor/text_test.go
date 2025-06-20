@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/FollowTheProcess/dead/internal/extractor"
-	"github.com/FollowTheProcess/test"
 	"github.com/rogpeppe/go-internal/txtar"
+	"go.followtheprocess.codes/test"
 )
 
 var ci = os.Getenv("CI") != ""
