@@ -4,8 +4,8 @@ go.followtheprocess.codes/cli v0.14.0 h1:33fRfsEgbZQHxwualsbSa9DmIrmbsUmw2KnoRhN
 go.followtheprocess.codes/cli v0.14.0/go.mod h1:puT021y9W1Mnq7EiTwnqOABBLr4hqknZIe9g843nUu8=
 go.followtheprocess.codes/hue v0.6.0 h1:JDLnRrkauCCIyYRqKNBDM+X6X5o75j2CG3iddnzIuhc=
 go.followtheprocess.codes/hue v0.6.0/go.mod h1:tNCWKaywHqkFo20hYOVwG7CaoRajJeE2AueP5HStY7U=
-go.followtheprocess.codes/log v0.3.0 h1:tK59g2afNjhC0HJdNmvRkHF0ShoF+LQ6CI79n8id2vI=
-go.followtheprocess.codes/log v0.3.0/go.mod h1:wrv8aOW6lHNQ1c+H/+gl2Q1ttb9fS4A+r1D271Pd+Dg=
+go.followtheprocess.codes/log v0.4.0 h1:mJpHSgJZCWXjpa9FZ6gHAHGqnC3CDXTmXeV8sNh96tU=
+go.followtheprocess.codes/log v0.4.0/go.mod h1:9HxS5JQ0OHgffsQpzsqlWdlceF2LRCV35h9QX1JE1s0=
 go.followtheprocess.codes/msg v1.9.1 h1:Gm9lIG2S7Lt9OSrAGvLWe+i487MVz3KZNNi56LLHsuo=
 go.followtheprocess.codes/msg v1.9.1/go.mod h1:UcgJDy8xvI2QEuJBiQMvmyzkg6bIgch3KigICvvvZ3E=
 go.followtheprocess.codes/snapshot v0.6.0 h1:aq7WIc8hInqdpdrOzntk9lqHwxUqSw3YbgLYaoy0laQ=
@@ -14,9 +14,9 @@ go.followtheprocess.codes/spin v0.3.1 h1:1CI1cz2I51ih1BZ98LPZKr/BujzjBg9ec954+x6
 go.followtheprocess.codes/spin v0.3.1/go.mod h1:fBVKIvKiOY0UegufW0ALoHMmq0Ffi76ACxWP88WXhWY=
 go.followtheprocess.codes/test v0.22.0 h1:erXLdEY/Kj0+gt5rNVtHzbJ+7g9l0JBNuzc7WtcFz00=
 go.followtheprocess.codes/test v0.22.0/go.mod h1:5xDKZUMZ125YgTPBxaAo2nioaSSk7dkfcTCyzsigWzE=
-golang.org/x/sys v0.33.0 h1:q3i8TbbEz+JRD9ywIRlyRAQbM0qF7hu24q3teo2hbuw=
-golang.org/x/sys v0.33.0/go.mod h1:BJP2sWEmIv4KK5OTEluFJCKSidICx8ciO85XgH3Ak8k=
-golang.org/x/term v0.32.0 h1:DR4lr0TjUs3epypdhTOkMmuF5CDFJ/8pOnbzMZPQ7bg=
-golang.org/x/term v0.32.0/go.mod h1:uZG1FhGx848Sqfsq4/DlJr3xGGsYMu/L5GW4abiaEPQ=
+golang.org/x/sys v0.34.0 h1:H5Y5sJ2L2JRdyv7ROF1he/lPdvFsd0mJHFw2ThKHxLA=
+golang.org/x/sys v0.34.0/go.mod h1:BJP2sWEmIv4KK5OTEluFJCKSidICx8ciO85XgH3Ak8k=
+golang.org/x/term v0.33.0 h1:NuFncQrRcaRvVmgRkvM3j/F00gWIAlcmlB8ACEKmGIg=
+golang.org/x/term v0.33.0/go.mod h1:s18+ql9tYWp1IfpV9DmCtQDDSRBUjKaw9M1eAv5UeF0=
 golang.org/x/tools v0.34.0 h1:qIpSLOxeCYGg9TrcJokLBG4KFA6d795g0xkBkiESGlo=
 golang.org/x/tools v0.34.0/go.mod h1:pAP9OwEaY1CAW3HOmg3hLZC5Z0CCmzjAF2UQMSqNARg=
