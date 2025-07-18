@@ -26,7 +26,7 @@ func TestMain(m *testing.M) {
 			}
 			if err := app.Check(os.Args[1], options); err != nil {
 				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-				os.Exit(1)
+				os.Exit(1) //nolint:revive // redundant-test-main-exit, this is a testscript main
 			}
 		},
 	})
@@ -35,7 +35,7 @@ func TestMain(m *testing.M) {
 func Test(t *testing.T) {
 	// Just always returns a 200
 	successHandler := func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, `{"stuff": "here"}`)
+		fmt.Fprint(w, `{"stuff": "here"}`)
 	}
 
 	server := httptest.NewServer(http.HandlerFunc(successHandler))

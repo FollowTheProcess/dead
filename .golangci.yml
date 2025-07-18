@@ -25,6 +25,7 @@ linters:
     - funlen # Bad metric for complexity
     - ginkgolinter # I don't use whatever this is
     - gochecknoglobals # Globals are fine sometimes, use common sense
+    - gocognit # Complexity with another name, don't need both
     - gocyclo # cyclop does this instead
     - godox # "todo" and "fixme" comments are allowed
     - goheader # No need
@@ -35,12 +36,14 @@ linters:
     - maintidx # This is just the inverse of complexity... which is cyclop
     - nestif # cyclop does this
     - nlreturn # Similar to wsl, I think best left to judgement
+    - noinlineerr # Inline errors are fine
     - nonamedreturns # Named returns are often helpful, it's naked returns that are the issue
     - paralleltest # I've never had Go tests take longer than a few seconds, it's fine
     - unparam # gopls is better and more subtle
     - varnamelen # Lots of false positives of things that are fine
     - wrapcheck # Not every error must be wrapped
     - wsl # Very aggressive, some of this I like but tend to do anyway
+    - wsl_v5 # Very aggressive, some of this I like but tend to do anyway
 
   exclusions:
     presets:
