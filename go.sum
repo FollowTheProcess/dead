@@ -12,11 +12,11 @@ go.followtheprocess.codes/snapshot v0.6.0 h1:aq7WIc8hInqdpdrOzntk9lqHwxUqSw3YbgL
 go.followtheprocess.codes/snapshot v0.6.0/go.mod h1:0hskrLbmTgcv3h1YgVgX0CXiiOKq0UvhM4PewnOZOno=
 go.followtheprocess.codes/spin v0.3.1 h1:1CI1cz2I51ih1BZ98LPZKr/BujzjBg9ec954+x6L4YQ=
 go.followtheprocess.codes/spin v0.3.1/go.mod h1:fBVKIvKiOY0UegufW0ALoHMmq0Ffi76ACxWP88WXhWY=
-go.followtheprocess.codes/test v0.22.0 h1:erXLdEY/Kj0+gt5rNVtHzbJ+7g9l0JBNuzc7WtcFz00=
-go.followtheprocess.codes/test v0.22.0/go.mod h1:5xDKZUMZ125YgTPBxaAo2nioaSSk7dkfcTCyzsigWzE=
+go.followtheprocess.codes/test v0.23.0 h1:XpKkEAzzm2/FmOAfR6GHRvgdY3XhragOWYCCvr9F6wg=
+go.followtheprocess.codes/test v0.23.0/go.mod h1:Bhx7T8XRQs6w7DuT06uG4EPbGeaVgj3HL4laIGLVV4w=
 golang.org/x/sys v0.35.0 h1:vz1N37gP5bs89s7He8XuIYXpyY0+QlsKmzipCbUtyxI=
 golang.org/x/sys v0.35.0/go.mod h1:BJP2sWEmIv4KK5OTEluFJCKSidICx8ciO85XgH3Ak8k=
 golang.org/x/term v0.34.0 h1:O/2T7POpk0ZZ7MAzMeWFSg6S5IpWd/RXDlM9hgM3DR4=
 golang.org/x/term v0.34.0/go.mod h1:5jC53AEywhIVebHgPVeg0mj8OD3VO9OzclacVrqpaAw=
-golang.org/x/tools v0.34.0 h1:qIpSLOxeCYGg9TrcJokLBG4KFA6d795g0xkBkiESGlo=
-golang.org/x/tools v0.34.0/go.mod h1:pAP9OwEaY1CAW3HOmg3hLZC5Z0CCmzjAF2UQMSqNARg=
+golang.org/x/tools v0.36.0 h1:kWS0uv/zsvHEle1LbV5LE8QujrxB3wfQyxHfhOk0Qkg=
+golang.org/x/tools v0.36.0/go.mod h1:WBDiHKJK8YgLHlcQPYQzNCkUxUypCaa5ZegCVutKm+s=
