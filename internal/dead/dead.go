@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"os"
 	"runtime"
@@ -109,7 +110,7 @@ func (d Dead) Check(path string, options CheckOptions) error {
 
 	// Range over the results channel which should return the URL, status code and the message
 	// if it's not ok. But not stop the loop, we need to keep processing all links
-	logger := d.logger.With("path", path)
+	logger := d.logger.With(slog.String("path", path))
 	logger.Debug("Checking links")
 
 	info, err := os.Stat(path)
