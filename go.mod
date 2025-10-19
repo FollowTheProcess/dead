@@ -6,7 +6,7 @@ require (
 	github.com/rogpeppe/go-internal v1.14.1
 	go.followtheprocess.codes/cli v0.15.0
 	go.followtheprocess.codes/hue v1.0.0
-	go.followtheprocess.codes/log v1.1.1
+	go.followtheprocess.codes/log v1.2.0
 	go.followtheprocess.codes/msg v1.9.1
 	go.followtheprocess.codes/spin v0.3.1
 	go.followtheprocess.codes/test v1.0.0

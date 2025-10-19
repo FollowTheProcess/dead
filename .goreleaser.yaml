@@ -37,8 +37,6 @@ homebrew_casks:
     directory: Casks
     description: A dead simple link checker, supporting multiple formats
     homepage: https://github.com/FollowTheProcess/dead
-    conflicts:
-      - formula: dead
     commit_author:
       name: Tom Fleet
       email: me@followtheprocess.codes
