@@ -33,7 +33,8 @@ builds:
 
 homebrew_casks:
   - name: dead
-    binary: dead
+    binaries:
+      - dead
     directory: Casks
     description: A dead simple link checker, supporting multiple formats
     homepage: https://github.com/FollowTheProcess/dead
