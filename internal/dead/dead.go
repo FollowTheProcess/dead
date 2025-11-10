@@ -75,6 +75,7 @@ func New(stdout, stderr io.Writer, debug bool, version string) Dead {
 
 // CheckOptions are the flags passed to the check subcommand.
 type CheckOptions struct {
+	Path           string        // Path to check
 	Debug          bool          // Enable verbose logging
 	RequestTimeout time.Duration // Per request timeout
 	Timeout        time.Duration // Timeout for the whole operation
@@ -91,7 +92,7 @@ type CheckResult struct {
 }
 
 // Check is the entry point for the `dead check` subcommand.
-func (d Dead) Check(path string, options CheckOptions) error {
+func (d Dead) Check(options CheckOptions) error {
 	if options.Parallelism < 1 {
 		options.Parallelism = runtime.NumCPU()
 	}
@@ -110,12 +111,12 @@ func (d Dead) Check(path string, options CheckOptions) error {
 
 	// Range over the results channel which should return the URL, status code and the message
 	// if it's not ok. But not stop the loop, we need to keep processing all links
-	logger := d.logger.With(slog.String("path", path))
+	logger := d.logger.With(slog.String("path", options.Path))
 	logger.Debug("Checking links")
 
-	info, err := os.Stat(path)
+	info, err := os.Stat(options.Path)
 	if err != nil {
-		return fmt.Errorf("os.Stat(%s): %w", path, err)
+		return fmt.Errorf("os.Stat(%s): %w", options.Path, err)
 	}
 
 	if info.Mode().IsDir() {
@@ -123,11 +124,11 @@ func (d Dead) Check(path string, options CheckOptions) error {
 	}
 
 	if !info.Mode().IsRegular() {
-		return fmt.Errorf("%s has unsupported file mode: %s", path, info.Mode())
+		return fmt.Errorf("%s has unsupported file mode: %s", options.Path, info.Mode())
 	}
 
 	// Now we know it's a regular file
-	f, err := os.Open(path)
+	f, err := os.Open(options.Path)
 	if err != nil {
 		return err
 	}
@@ -139,7 +140,7 @@ func (d Dead) Check(path string, options CheckOptions) error {
 
 	links := extractLinks(ctx, f)
 
-	spinner := spin.New(d.stdout, "Checking "+path)
+	spinner := spin.New(d.stdout, "Checking "+options.Path)
 
 	spinner.Start()
 	workers := make([]<-chan CheckResult, 0, options.Parallelism)
