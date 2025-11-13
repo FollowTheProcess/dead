@@ -1,6 +1,7 @@
 package dead_test
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"net/http"
@@ -25,7 +26,7 @@ func TestMain(m *testing.M) {
 				RequestTimeout: dead.DefaultRequestTimeout,
 				Timeout:        dead.DefaultOverallTimeout,
 			}
-			if err := app.Check(options); err != nil {
+			if err := app.Check(context.Background(), options); err != nil {
 				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 				os.Exit(1) //nolint:revive // redundant-test-main-exit, this is a testscript main
 			}

@@ -92,13 +92,13 @@ type CheckResult struct {
 }
 
 // Check is the entry point for the `dead check` subcommand.
-func (d Dead) Check(options CheckOptions) error {
+func (d Dead) Check(ctx context.Context, options CheckOptions) error {
 	if options.Parallelism < 1 {
 		options.Parallelism = runtime.NumCPU()
 	}
 	start := time.Now()
 
-	ctx, cancel := context.WithTimeout(context.Background(), options.Timeout)
+	ctx, cancel := context.WithTimeout(ctx, options.Timeout)
 	defer cancel()
 
 	// See if path is a file or a directory

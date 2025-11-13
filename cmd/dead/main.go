@@ -1,7 +1,9 @@
 package main
 
 import (
+	"context"
 	"os"
+	"os/signal"
 
 	"go.followtheprocess.codes/dead/internal/cmd"
 	"go.followtheprocess.codes/msg"
@@ -15,10 +17,15 @@ func main() {
 }
 
 func run() error {
+	ctx := context.Background()
+
+	ctx, cancel := signal.NotifyContext(ctx, os.Interrupt, os.Kill)
+	defer cancel()
+
 	cli, err := cmd.Build()
 	if err != nil {
 		return err
 	}
 
-	return cli.Execute()
+	return cli.Execute(ctx)
 }
