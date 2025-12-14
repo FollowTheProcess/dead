@@ -28,7 +28,7 @@ func TestMain(m *testing.M) {
 			}
 			if err := app.Check(context.Background(), options); err != nil {
 				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-				os.Exit(1) //nolint:revive // redundant-test-main-exit, this is a testscript main
+				os.Exit(1) //nolint:revive // deep-exit, this is a testscript main
 			}
 		},
 	})
