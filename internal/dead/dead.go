@@ -149,7 +149,7 @@ func (d Dead) Check(ctx context.Context, options CheckOptions) error {
 	}
 	results := collect(ctx, workers...)
 
-	var sorted []CheckResult //nolint:prealloc // It's channels so we don't actually know
+	var sorted []CheckResult
 	for result := range results {
 		sorted = append(sorted, result)
 	}
