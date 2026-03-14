@@ -1,6 +1,6 @@
 module go.followtheprocess.codes/dead
 
-go 1.25
+go 1.26
 
 require (
 	github.com/rogpeppe/go-internal v1.14.1
@@ -13,7 +13,7 @@ require (
 )
 
 require (
-	golang.org/x/sys v0.39.0 // indirect
-	golang.org/x/term v0.38.0 // indirect
+	golang.org/x/sys v0.42.0 // indirect
+	golang.org/x/term v0.41.0 // indirect
 	golang.org/x/tools v0.39.0 // indirect
 )
