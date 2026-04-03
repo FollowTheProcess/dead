@@ -1,7 +1,7 @@
 github.com/rogpeppe/go-internal v1.14.1 h1:UQB4HGPB6osV0SQTLymcB4TgvyWu6ZyliaW0tI/otEQ=
 github.com/rogpeppe/go-internal v1.14.1/go.mod h1:MaRKkUm5W0goXpeCfT7UZI6fk/L7L7so1lCWt35ZSgc=
-go.followtheprocess.codes/cli v0.18.3 h1:B15Ho/4eMZGrAPjR1vuG3LFKLoJVMc8J6Ydrg5Dlyaw=
-go.followtheprocess.codes/cli v0.18.3/go.mod h1:wmv+04ywMsWqyJXyIEW1c4Z6qhrvjWK5prE6QWVCUKM=
+go.followtheprocess.codes/cli v0.19.0 h1:V0JjyQyJyu/aHYFFibpnUHfCu0R7qs2BGSZQR7MPadE=
+go.followtheprocess.codes/cli v0.19.0/go.mod h1:OKqn4Ps6y2cxUPBBxNfHBF5zRe4gIJk5a8u5SKnNuXs=
 go.followtheprocess.codes/hue v1.0.0 h1:0fYXAGR1o+w7Vja+Q+iVtqeEP3/CE6ET/pniyl8e9yo=
 go.followtheprocess.codes/hue v1.0.0/go.mod h1:gSn5xK6KJapih+eFgQk3woo1qg3/rx9XSrAanUIuDr8=
 go.followtheprocess.codes/log v1.2.0 h1:23MY3BRVe9fr+mFCofVixv//RcmaMVCk56MZY/aRWW8=
@@ -14,8 +14,8 @@ go.followtheprocess.codes/spin v0.3.1 h1:1CI1cz2I51ih1BZ98LPZKr/BujzjBg9ec954+x6
 go.followtheprocess.codes/spin v0.3.1/go.mod h1:fBVKIvKiOY0UegufW0ALoHMmq0Ffi76ACxWP88WXhWY=
 go.followtheprocess.codes/test v1.1.0 h1:1v2JyMd3STr7dIXzcHEhct2qvS8/mTtGYbSyhpReciI=
 go.followtheprocess.codes/test v1.1.0/go.mod h1:BHZi5SZahJw01xcuc7EgrlyzX7zJLXAWy11rOR9geVw=
-go.yaml.in/yaml/v4 v4.0.0-rc.3 h1:3h1fjsh1CTAPjW7q/EMe+C8shx5d8ctzZTrLcs/j8Go=
-go.yaml.in/yaml/v4 v4.0.0-rc.3/go.mod h1:aZqd9kCMsGL7AuUv/m/PvWLdg5sjJsZ4oHDEnfPPfY0=
+go.yaml.in/yaml/v4 v4.0.0-rc.4 h1:UP4+v6fFrBIb1l934bDl//mmnoIZEDK0idg1+AIvX5U=
+go.yaml.in/yaml/v4 v4.0.0-rc.4/go.mod h1:aZqd9kCMsGL7AuUv/m/PvWLdg5sjJsZ4oHDEnfPPfY0=
 golang.org/x/sys v0.42.0 h1:omrd2nAlyT5ESRdCLYdm3+fMfNFE/+Rf4bDIQImRJeo=
 golang.org/x/sys v0.42.0/go.mod h1:4GL1E5IUh+htKOUEOaiffhrAeqysfVGipDYzABqnCmw=
 golang.org/x/term v0.41.0 h1:QCgPso/Q3RTJx2Th4bDLqML4W6iJiaXFq2/ftQF13YU=
