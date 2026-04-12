@@ -9,12 +9,13 @@ require (
 	go.followtheprocess.codes/log v1.2.1
 	go.followtheprocess.codes/msg v1.9.2
 	go.followtheprocess.codes/spin v0.3.1
-	go.followtheprocess.codes/test v1.1.0
+	go.followtheprocess.codes/test v1.2.0
 )
 
 require (
+	go.followtheprocess.codes/diff v0.1.1 // indirect
 	go.yaml.in/yaml/v4 v4.0.0-rc.4 // indirect
-	golang.org/x/sys v0.42.0 // indirect
-	golang.org/x/term v0.41.0 // indirect
-	golang.org/x/tools v0.39.0 // indirect
+	golang.org/x/sys v0.43.0 // indirect
+	golang.org/x/term v0.42.0 // indirect
+	golang.org/x/tools v0.44.0 // indirect
 )
