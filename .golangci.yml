@@ -56,6 +56,10 @@ linters:
         linters:
           - prealloc # These kinds of optimisations will make no difference to test code
           - gosec # Tests don't need security stuff
+      - path: _test\.go
+        linters:
+          - revive
+        text: "redundant-test-main-exit" # False positive: os.Exit in a testscript command closure, not TestMain itself
 
   settings:
     cyclop:
