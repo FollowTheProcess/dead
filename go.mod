@@ -9,7 +9,7 @@ require (
 	go.followtheprocess.codes/log v1.2.1
 	go.followtheprocess.codes/msg v1.9.2
 	go.followtheprocess.codes/spin v0.3.1
-	go.followtheprocess.codes/test v1.2.2
+	go.followtheprocess.codes/test v1.4.0
 )
 
 require (
