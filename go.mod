@@ -4,7 +4,7 @@ go 1.26
 
 require (
 	github.com/rogpeppe/go-internal v1.14.1
-	go.followtheprocess.codes/cli v0.19.0
+	go.followtheprocess.codes/cli v0.20.0
 	go.followtheprocess.codes/hue v1.1.0
 	go.followtheprocess.codes/log v1.2.1
 	go.followtheprocess.codes/msg v1.9.2
