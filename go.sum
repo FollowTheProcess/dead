@@ -1,7 +1,7 @@
 github.com/rogpeppe/go-internal v1.14.1 h1:UQB4HGPB6osV0SQTLymcB4TgvyWu6ZyliaW0tI/otEQ=
 github.com/rogpeppe/go-internal v1.14.1/go.mod h1:MaRKkUm5W0goXpeCfT7UZI6fk/L7L7so1lCWt35ZSgc=
-go.followtheprocess.codes/cli v0.19.0 h1:V0JjyQyJyu/aHYFFibpnUHfCu0R7qs2BGSZQR7MPadE=
-go.followtheprocess.codes/cli v0.19.0/go.mod h1:OKqn4Ps6y2cxUPBBxNfHBF5zRe4gIJk5a8u5SKnNuXs=
+go.followtheprocess.codes/cli v0.20.0 h1:oidHolLCF2iNart+3KhJMsGtBP+nlSWzlT9VvJAHx2Q=
+go.followtheprocess.codes/cli v0.20.0/go.mod h1:l1htpdaL3koow6fKy0tVjqAdHxpbHL8amYW/w1pD8I8=
 go.followtheprocess.codes/diff v0.2.0 h1:NuEPvXSUEIeBqpSukuhkAUchS1EaiH7PYSj9zesd8Uc=
 go.followtheprocess.codes/diff v0.2.0/go.mod h1:bDSZPC9CvkRr8HlOwjE1bl/8qFAmiA3LVtkThRnniis=
 go.followtheprocess.codes/hue v1.1.0 h1:bPq21YLdWxQ0ki4lIvXCYtgutaGaDUYaSIENDdrrlNQ=
