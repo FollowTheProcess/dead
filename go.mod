@@ -7,7 +7,7 @@ require (
 	go.followtheprocess.codes/cli v0.21.0
 	go.followtheprocess.codes/hue v1.1.0
 	go.followtheprocess.codes/log v1.2.1
-	go.followtheprocess.codes/msg v1.9.2
+	go.followtheprocess.codes/msg v1.10.0
 	go.followtheprocess.codes/spin v0.3.1
 	go.followtheprocess.codes/test v1.4.0
 )
