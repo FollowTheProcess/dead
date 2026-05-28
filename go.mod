@@ -3,7 +3,7 @@ module go.followtheprocess.codes/dead
 go 1.26
 
 require (
-	github.com/rogpeppe/go-internal v1.14.1
+	github.com/rogpeppe/go-internal v1.15.0
 	go.followtheprocess.codes/cli v0.21.0
 	go.followtheprocess.codes/hue v1.2.0
 	go.followtheprocess.codes/log v1.2.2
