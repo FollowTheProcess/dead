@@ -12,8 +12,8 @@ go.followtheprocess.codes/msg v1.10.0 h1:0uMrQpmhIxWDL7p8hw6DQ0wMRcNmsE8Vi0zECey
 go.followtheprocess.codes/msg v1.10.0/go.mod h1:5bHWSD5Fxy0SsCepbIId3Y+UvPc1ct+43lwsg2ER33w=
 go.followtheprocess.codes/snapshot v0.10.1 h1:GWNOdDxGtRiw0HVKnidhCHI0ymmZaaiHAARimyjNVU4=
 go.followtheprocess.codes/snapshot v0.10.1/go.mod h1:vCkJeHMLa4mOP451SrA9m+Ym5tumx66hXm318jAwf5Y=
-go.followtheprocess.codes/spin v0.3.1 h1:1CI1cz2I51ih1BZ98LPZKr/BujzjBg9ec954+x6L4YQ=
-go.followtheprocess.codes/spin v0.3.1/go.mod h1:fBVKIvKiOY0UegufW0ALoHMmq0Ffi76ACxWP88WXhWY=
+go.followtheprocess.codes/spin v0.3.2 h1:XcpDVJsix3Yq7gc0aV2zZfSdq/22xkyX5hlVcVVO9SM=
+go.followtheprocess.codes/spin v0.3.2/go.mod h1:9aY4eXRhswvqSLKTpF19foLSvCjNsy1P3q7NiGCVC/E=
 go.followtheprocess.codes/test v1.4.0 h1:LBZYn2MqOW20HLe1AJm3lMLplSWH+zycfC7mmS9NF2w=
 go.followtheprocess.codes/test v1.4.0/go.mod h1:/Lq3YrwTqU/tb1wbO+Kt7Gs1I3qzFu/o/CUykOavoVA=
 go.yaml.in/yaml/v4 v4.0.0-rc.4 h1:UP4+v6fFrBIb1l934bDl//mmnoIZEDK0idg1+AIvX5U=
